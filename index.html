@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retornado um json</title>
+    <style>
+        #conteiner{
+            display: flex;
+            justify-content: space-around;
+            align-items: center; 
+            flex-wrap: wrap;
+        }
+        .card{
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            border: solid 1px black;
+            border-radius: 8px;
+        }
+        .card img{
+            border-radius: 8px;
+            object-fit: cover;
+            width: 150px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="conteiner"></div>
+
+<script>
+    function carregar(){
+    fetch("conteudo.json")
+        .then(response => response.json())
+        .then(conteudo => {
+            const conteiner = document.getElementById("conteiner");
+            conteudo.map( conteudo => {
+                const card = document.createElement("div")
+                card.classList.add("card")
+
+                const img = document.createElement("img");
+                img.src = conteudo.img
+
+                const titulo = document.createElement("h3")
+                titulo.textContent = conteudo.nome
+
+                card.appendChild(img)
+                card.appendChild(titulo)
+                conteiner.appendChild(card)
+            })
+        })
+    }
+    carregar();
+</script>
+
+</body>
+</html>

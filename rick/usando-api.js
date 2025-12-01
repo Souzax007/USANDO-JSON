@@ -17,7 +17,8 @@ const fetchApi = (value) => {
 btn.addEventListener('click', async (event) =>{
     event.preventDefault();
     const result = await fetchApi(personagem.value);
-    container.textContent = `${JSON.stringify(result, undefined,2)}`;
+    //container.textContent = `${JSON.stringify(result, undefined,2)}`;
     imagem.src = `${result.image}`;
+    container.textContent = `${result.name}`;
 });
 

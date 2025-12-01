@@ -1,0 +1,110 @@
+body{
+    background-image: url("https://assets2.razerzone.com/images/downloads-page/desktop-wallpapers/Sneki-Snek/Dark-Green-Sneki-Snek-Wallpaper_1920x1080.jpg?_gl=1*ddpohg*_gcl_au*MjAzNDYyMTc3MS4xNzY0NjE2NDcx");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#conteiner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    flex-wrap: wrap;
+    width: 100%;
+}
+.card{
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    border: ridge 1px black;
+    color: rgb(98, 241, 110);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    border-style:dotted;
+    border-width: 4px;
+    width: 180px;
+    height: 260px; 
+    position: relative;
+}
+.card img{
+    border-radius: 8px;
+    object-fit: cover;
+    width: 150px;
+    height: 200px;
+}
+.card button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.card:hover{
+    background-color: rgb(109, 102, 94);
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background: #585454;
+    margin: 90px auto;
+    padding: 10px;
+    width: 15%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.card {
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 180px;
+    height: 260px; 
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-back {
+    background-color: #272424;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
